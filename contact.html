@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contact</title>
+    <link rel="stylesheet" href="scss/styles.css" />
+  </head>
+  <body class="contact-page">
+    <div class="container">
+      <header>
+        <h1>Contact Details</h1>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Skills</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="contact-wrapper">
+          <div class="contact-text">
+            <h2>Get in touch</h2>
+            <p>Thank you for contacting me.</p>
+            <p>
+              If you have any message for me or just want to say hi, please use
+              the contact form.
+            </p>
+          </div>
+
+          <form action="#" method="post" class="contact-form">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required />
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="contact-button-form">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </main>
+      <footer>
+        <p>&copy; Personal website, 2025</p>
+      </footer>
+    </div>
+  </body>
+</html>
