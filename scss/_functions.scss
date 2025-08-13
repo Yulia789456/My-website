@@ -1,7 +1,8 @@
-// FUNCTIONS
+// ------------------------------
+// Functions
+// ------------------------------
 
-// function to convert pixels to rem units
-@function rem($px, $base: 16) {
-  // Divide px value by base size (default 16)
-  @return ($px / $base) * 1rem;
+// Lighten or darken a given color
+@function theme-color($color, $amount) {
+  @return lighten($color, $amount);
 }

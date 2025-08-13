@@ -1,0 +1,26 @@
+// ------------------------------
+// Mixins
+// ------------------------------
+
+// Center content horizontally and vertically
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Generic button style
+@mixin button-style($bg-color, $hover-color) {
+  background-color: $bg-color;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover-color;
+    transform: translateY(-2px);
+  }
+}

@@ -1,5 +1,18 @@
-$main-width: 1024px;
-$font-stack: Helvetica, Arial, sans-serif;
-$nav-color: rgba(255, 255, 255, 0.3);
-$link-color: white;
-$link-bg: #0056b3;
+// VARIABLES
+
+// Colors
+$primary-color: rgba(0, 86, 179, 0.8);
+$primary-color-hover: rgba(0, 86, 179, 1);
+$secondary-color: #5a4a2e;
+$light-bg: #f5f0e6;
+$text-light: white;
+$text-dark: #0c172d;
+$text-heading: #0f1e35;
+
+// Layout
+$border-radius: 10px;
+$max-width: 1024px;
+$shadow-color: rgba(0, 0, 0, 0.5);
+
+// Fonts
+$font-main: Helvetica, Arial, sans-serif;

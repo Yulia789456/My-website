@@ -16,6 +16,10 @@
             <li><a href="hobbies.html">Hobbies</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
+          <label>
+            <input type="checkbox" id="darkModeToggle" />
+            Dark Mode
+          </label>
         </nav>
       </header>
       <main class="about-intro">
@@ -65,5 +69,30 @@
         <p>&copy; Personal website, 2025</p>
       </footer>
     </div>
+    <script>
+      const toggle = document.getElementById("darkModeToggle");
+
+      // Load saved dark mode setting on page load
+      window.addEventListener("DOMContentLoaded", () => {
+        const darkMode = localStorage.getItem("darkMode");
+        if (darkMode === "enabled") {
+          document.body.classList.add("dark-mode");
+          if (toggle) toggle.checked = true; // keep checkbox checked
+        }
+      });
+
+      // Listen for toggle changes to update mode and save choice
+      if (toggle) {
+        toggle.addEventListener("change", () => {
+          if (toggle.checked) {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("darkMode", "enabled");
+          } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("darkMode", "disabled");
+          }
+        });
+      }
+    </script>
   </body>
 </html>

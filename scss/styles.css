@@ -1,6 +1,3 @@
-/* ----------------------------------- */
-/* Global resets and base styles       */
-/* ----------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +11,7 @@ html {
 body {
   background-image: url("../images/bg-image.jpg");
   background-size: cover;
+  color: #0c172d;
 }
 
 .container {
@@ -24,9 +22,6 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* ----------------------------------- */
-/* Header and Navigation                */
-/* ----------------------------------- */
 header {
   height: 150px;
   background-color: #f5f0e6;
@@ -35,29 +30,29 @@ header {
   flex-direction: column;
   justify-content: space-between;
 }
-
 header h1 {
   font-size: 30px;
   color: #5a4a2e;
   padding-top: 2rem;
   text-align: center;
 }
-
-nav {
+header nav {
   background-color: #f5f0e6;
   border-radius: 0 0 10px 10px;
   padding: 0.5rem 0;
   box-shadow: 0 -1px 5px rgba(90, 74, 46, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-
-nav ul {
+header nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
   gap: 1.5rem;
 }
-
-nav a {
+header nav ul a {
   color: #5a4a2e;
   font-weight: 600;
   text-decoration: none;
@@ -65,71 +60,82 @@ nav a {
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-nav a:hover {
-  background-color: #e3dccc;
+header nav ul a:hover {
+  background-color: rgba(77, 162.5195530726, 255, 0.8);
+}
+header nav label {
+  margin-left: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #5a4a2e;
+  display: flex;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+header nav label input {
+  margin-right: 0.4rem;
+  cursor: pointer;
 }
 
-/* ----------------------------------- */
-/* Intro Section Layout and Styling    */
-/* ----------------------------------- */
 .intro {
   display: flex;
   gap: 2rem;
   padding: 1rem;
 }
-
-.main-text {
+.intro .main-text {
   color: white;
 }
-.main-text ul {
+.intro .main-text ul {
   padding-bottom: 2rem;
 }
-
-.extra-buttons {
+.intro .extra-buttons {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: flex-start;
 }
-
-.contact-button {
-  text-decoration: none;
+.intro .extra-buttons .contact-button {
   background-color: #942e70;
-  padding: 0.6rem 1.5rem;
   color: white;
   font-weight: bold;
   border-radius: 0.5rem;
+  padding: 0.6rem 1.5rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
   margin-top: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
 }
-
-.contact-button:hover {
+.intro .extra-buttons .contact-button:hover {
   background-color: rgb(112, 33, 65);
   transform: translateY(-2px);
 }
-
-/* ----------------------------------- */
-/* Download and LinkedIn Buttons       */
-/* ----------------------------------- */
-.download-button,
-.linkedin-button {
-  padding: 0.6rem 1.5rem;
+.intro .extra-buttons .contact-button:hover {
+  background-color: rgb(198.2113402062, 72.2886597938, 153.7680412371);
+}
+.intro .extra-buttons .download-button,
+.intro .extra-buttons .linkedin-button {
   background-color: rgba(0, 86, 179, 0.8);
   color: white;
   font-weight: bold;
-  text-decoration: none;
   border-radius: 0.5rem;
+  padding: 0.6rem 1.5rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
   margin-top: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
 }
-
-.download-button:hover,
-.linkedin-button:hover {
+.intro .extra-buttons .download-button:hover,
+.intro .extra-buttons .linkedin-button:hover {
   background-color: rgb(0, 86, 179);
   transform: translateY(-2px);
+}
+.intro .extra-buttons .download-button:hover,
+.intro .extra-buttons .linkedin-button:hover {
+  background-color: rgba(0.5, 122.7737430168, 255, 0.8);
 }
 
 .profile-picture {
@@ -142,7 +148,6 @@ nav a:hover {
   cursor: pointer;
   transition: transform 0.7s ease;
 }
-
 .profile-picture:hover {
   transform: translateX(-30px);
 }
@@ -152,14 +157,12 @@ nav a:hover {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-
 .main-text h3 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
   font-weight: 600;
   color: #122b45;
 }
-
 .main-text p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
@@ -176,19 +179,9 @@ nav a:hover {
   line-height: 1.4;
 }
 
-/* ----------------------------------- */
-/* Footer                             */
-/* ----------------------------------- */
 footer {
   text-align: center;
   padding: 1rem 0;
-}
-
-/* ----------------------------------- */
-/* Hobbies Page Styles                 */
-/* ----------------------------------- */
-.hobby-card h2 {
-  font-size: 1.2rem;
 }
 
 .hobby-card {
@@ -199,7 +192,6 @@ footer {
   transition: transform 0.3s ease;
   color: #5a4a2e;
 }
-
 .hobby-card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(16, 16, 16, 0.5);
@@ -213,7 +205,9 @@ footer {
   border-radius: 6px;
   margin-bottom: 0.75rem;
 }
-
+.hobby-card h2 {
+  font-size: 1.2rem;
+}
 .hobby-card p {
   line-height: 2;
 }
@@ -225,13 +219,9 @@ footer {
   margin: 2rem auto;
 }
 
-/* ----------------------------------- */
-/* Skills Section                     */
-/* ----------------------------------- */
 .skills-section {
   color: #cce4ff;
 }
-
 .skills-section h3 {
   font-size: 1.8rem;
   margin-top: 2rem;
@@ -239,31 +229,35 @@ footer {
   color: #0c253f;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
-
-.skills-list {
+.skills-section .skills-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 2rem;
 }
-
-.skills-list li {
+.skills-section .skills-list li {
   background-color: rgba(0, 86, 179, 0.8);
   padding: 0.4rem 1rem;
   border-radius: 20px;
   font-weight: 600;
   cursor: default;
 }
-
-.skills-description {
+.skills-section .skills-description {
   margin-top: 1rem;
   font-size: 1.2rem;
   color: #182a4a;
 }
 
-/* ----------------------------------- */
-/* Contact Page Styles                 */
-/* ----------------------------------- */
+.skills-list li:nth-child(1) {
+  background-color: rgba(0, 86, 179, 0.8);
+}
+.skills-list li:nth-child(2) {
+  background-color: rgba(0, 86, 179, 0.6);
+}
+.skills-list li:nth-child(3) {
+  background-color: rgba(0, 86, 179, 0.4);
+}
+
 .contact-wrapper {
   display: flex;
   gap: 2rem;
@@ -278,14 +272,12 @@ footer {
   justify-content: center;
   font-size: 1.2rem;
 }
-
 .contact-text h2 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #0f1e35;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-
 .contact-text p {
   margin-bottom: 0.8rem;
   color: #0c172d;
@@ -300,13 +292,11 @@ footer {
   display: flex;
   flex-direction: column;
 }
-
 .contact-form label {
   margin-bottom: 0.3rem;
   font-weight: bold;
   color: #a9c8ff;
 }
-
 .contact-form input,
 .contact-form textarea {
   margin-bottom: 1rem;
@@ -318,26 +308,51 @@ footer {
   color: white;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 .contact-form input:focus,
 .contact-form textarea:focus {
-  outline: 2px solid rgba(0, 86, 179, 0.9);
+  outline: 2px solid rgba(0, 86, 179, 0.8);
   background-color: rgba(18, 79, 136, 0.5254901961);
 }
-
-.contact-button-form {
-  padding: 0.75rem 1.5rem;
-  background-color: rgba(0, 86, 179, 0.9);
+.contact-form .contact-button-form {
+  background-color: rgba(0, 86, 179, 0.8);
   color: white;
   font-weight: bold;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
   font-size: 1rem;
   border: none;
-  border-radius: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
-.contact-button-form:hover {
+.contact-form .contact-button-form:hover {
   background-color: rgb(0, 86, 179);
   transform: translateY(-2px);
+}
+.contact-form .contact-button-form:hover {
+  background-color: rgba(0.5, 122.7737430168, 255, 0.8);
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+body.dark-mode .container {
+  background-color: rgba(30, 30, 30, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+body.dark-mode header {
+  background-color: #222;
+}
+body.dark-mode header h1,
+body.dark-mode header nav a,
+body.dark-mode header nav label {
+  color: white;
+}
+body.dark-mode header nav {
+  background-color: rgb(59.5, 59.5, 59.5);
+  box-shadow: none;
+}
+body.dark-mode footer {
+  color: white;
 }/*# sourceMappingURL=styles.css.map */
