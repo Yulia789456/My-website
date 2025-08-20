@@ -1,0 +1,17 @@
+@use "variables";
+// -----------------------------------
+// Placeholders
+// -----------------------------------
+%card-style {
+  background-color: #fdf8f2;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  color: variables.$secondary-color;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(16, 16, 16, 0.5);
+  }
+}

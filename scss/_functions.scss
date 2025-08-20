@@ -2,7 +2,12 @@
 // Functions
 // ------------------------------
 
-// Lighten or darken a given color
+// Lighten a given colour
 @function theme-color($color, $amount) {
   @return lighten($color, $amount);
+}
+
+// Darken a given colour
+@function theme-color-dark($color, $amount) {
+  @return darken($color, $amount);
 }

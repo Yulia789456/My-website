@@ -2,14 +2,17 @@
 // Mixins
 // ------------------------------
 
-// Center content horizontally and vertically
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// mixin for shadow box
+@mixin shadow-box {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  }
 }
 
-// Generic button style
+// mixin with arguments for button style
 @mixin button-style($bg-color, $hover-color) {
   background-color: $bg-color;
   color: white;

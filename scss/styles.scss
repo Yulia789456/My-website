@@ -2,6 +2,9 @@
 @use "variables";
 @use "functions";
 @use "mixins";
+@use "placeholders";
+
+$default-background: true;
 
 // Global reset
 * {
@@ -16,9 +19,17 @@ html {
 }
 
 body {
-  background-image: url("../images/bg-image.jpg");
-  background-size: cover;
   color: variables.$text-dark;
+
+  @if $default-background {
+    background-image: url("../images/summer-bg.jpg");
+  } @else {
+    background-image: url("../images/winter-bg.jpg");
+  }
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -204,23 +215,6 @@ footer {
 }
 
 // -----------------------------------
-// Placeholders
-// -----------------------------------
-%card-style {
-  background-color: #fdf8f2;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.3s ease;
-  color: variables.$secondary-color;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(16, 16, 16, 0.5);
-  }
-}
-
-// -----------------------------------
 // Hobbies Page
 // -----------------------------------
 .hobby-card {
@@ -266,9 +260,12 @@ footer {
 
   .skills-list {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; // 2 columns
+    grid-auto-flow: row; // fill top-to-bottom
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
 
     li {
       background-color: variables.$primary-color;
@@ -290,15 +287,35 @@ footer {
 
 // Skill colors
 $skill-bg-colors: (
-  1: rgba(0, 86, 179, 0.8),
-  2: rgba(0, 86, 179, 0.6),
-  3: rgba(0, 86, 179, 0.4),
+  1: rgba(221, 57, 109, 0.8),
+  2: rgba(197, 94, 25, 0.8),
+  3: rgba(121, 210, 44, 0.8),
+  4: rgba(70, 182, 193, 0.8),
+  5: rgba(185, 21, 21, 0.8),
+  6: rgba(186, 58, 161, 0.8),
+  7: rgba(62, 205, 43, 0.8),
+  8: rgba(137, 40, 67, 0.8),
+  9: rgba(214, 217, 40, 0.8),
 );
 
+$index: 1; // start counting
+
 .skills-list li {
-  @each $i, $color in $skill-bg-colors {
-    &:nth-child(#{$i}) {
-      background-color: $color;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: default;
+  flex: 1 1 calc(33.333% - 2rem);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+@each $i, $color in $skill-bg-colors {
+  .skills-list li:nth-child(#{$i}) {
+    background-color: $color;
+
+    &:hover {
+      background-color: functions.theme-color-dark($color, 10%);
     }
   }
 }
@@ -308,21 +325,22 @@ $skill-bg-colors: (
 // -----------------------------------
 .contact-wrapper {
   display: flex;
-  gap: 2rem;
-  margin: 2rem auto;
+  gap: 0.5rem;
+  margin: 1rem auto;
+  max-width: 900px;
 }
 
 .contact-text {
-  flex: 1 1 300px;
-  padding: 1rem;
+  flex: 1 1 100px;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 1.2rem;
 
   h2 {
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
     color: variables.$text-heading;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
@@ -334,6 +352,7 @@ $skill-bg-colors: (
 }
 
 .contact-form {
+  @include mixins.shadow-box;
   flex: 1 1 300px;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 1.5rem;
@@ -435,8 +454,8 @@ body.dark-mode {
 
   .intro {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .profile-picture {
@@ -451,6 +470,7 @@ body.dark-mode {
   .contact-wrapper {
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
   }
 
   .contact-text,
