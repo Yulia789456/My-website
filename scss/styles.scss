@@ -23,6 +23,7 @@ body {
 
 .container {
   max-width: variables.$max-width;
+  width: 100%; // ✅ allow shrinking on smaller screens
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 1rem 2rem;
@@ -82,7 +83,6 @@ header {
       }
     }
 
-    // Dark mode toggle label and checkbox
     label {
       margin-left: 1rem;
       cursor: pointer;
@@ -122,7 +122,6 @@ header {
     gap: 1rem;
     align-items: flex-start;
 
-    // Buttons use button-style mixin with different colors
     .contact-button {
       @include mixins.button-style(#942e70, rgb(112, 33, 65));
       margin-top: 0.5rem;
@@ -205,7 +204,7 @@ footer {
 }
 
 // -----------------------------------
-// Placeholders for reusable styles
+// Placeholders
 // -----------------------------------
 %card-style {
   background-color: #fdf8f2;
@@ -222,7 +221,7 @@ footer {
 }
 
 // -----------------------------------
-// Hobbies Page Styles
+// Hobbies Page
 // -----------------------------------
 .hobby-card {
   @extend %card-style;
@@ -277,6 +276,8 @@ footer {
       border-radius: 20px;
       font-weight: 600;
       cursor: default;
+      flex: 1 1 calc(33.333% - 2rem);
+      text-align: center;
     }
   }
 
@@ -287,8 +288,7 @@ footer {
   }
 }
 
-// Example using @each to create different background colors for skill items
-// (Here we override skill backgrounds to add subtle variation)
+// Skill colors
 $skill-bg-colors: (
   1: rgba(0, 86, 179, 0.8),
   2: rgba(0, 86, 179, 0.6),
@@ -304,7 +304,7 @@ $skill-bg-colors: (
 }
 
 // -----------------------------------
-// Contact Page Styles
+// Contact Page
 // -----------------------------------
 .contact-wrapper {
   display: flex;
@@ -381,7 +381,7 @@ $skill-bg-colors: (
 }
 
 // -----------------------------------
-// Dark Mode Styles - activated by body.dark-mode
+// Dark Mode
 // -----------------------------------
 body.dark-mode {
   background-color: #121212;
@@ -409,5 +409,94 @@ body.dark-mode {
 
   footer {
     color: variables.$text-light;
+  }
+}
+
+// -----------------------------------
+// RESPONSIVE MEDIA QUERIES
+// -----------------------------------
+
+/* Tablet (≤900px) */
+@media (max-width: 900px) {
+  header {
+    height: auto;
+    padding: 1rem;
+    text-align: center;
+
+    nav ul {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    nav label {
+      margin-top: 0.5rem;
+    }
+  }
+
+  .intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-picture {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hobbies-container {
+    grid-template-columns: 1fr; // 1 per row on tablet
+  }
+
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-text,
+  .contact-form {
+    width: 100%;
+  }
+
+  .skills-list li {
+    flex: 1 1 calc(50% - 2rem); // 2 per row
+  }
+}
+
+/* Mobile (≤600px) */
+@media (max-width: 600px) {
+  header nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .main-text h2 {
+    font-size: 2rem;
+  }
+  .main-text h3 {
+    font-size: 1.4rem;
+  }
+  .main-text p {
+    font-size: 1rem;
+  }
+
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hobbies-container {
+    grid-template-columns: 1fr; // 1 per row on mobile
+  }
+
+  .skills-list li {
+    flex: 1 1 100%; // full width
+  }
+
+  .contact-text h2 {
+    font-size: 1.8rem;
+  }
+  .contact-text p {
+    font-size: 1rem;
   }
 }

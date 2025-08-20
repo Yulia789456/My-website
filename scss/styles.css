@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +17,7 @@ body {
 
 .container {
   max-width: 1024px;
+  width: 100%;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 1rem 2rem;
@@ -241,6 +243,8 @@ footer {
   border-radius: 20px;
   font-weight: 600;
   cursor: default;
+  flex: 1 1 calc(33.333% - 2rem);
+  text-align: center;
 }
 .skills-section .skills-description {
   margin-top: 1rem;
@@ -355,4 +359,75 @@ body.dark-mode header nav {
 }
 body.dark-mode footer {
   color: white;
+}
+
+/* Tablet (≤900px) */
+@media (max-width: 900px) {
+  header {
+    height: auto;
+    padding: 1rem;
+    text-align: center;
+  }
+  header nav ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  header nav label {
+    margin-top: 0.5rem;
+  }
+  .intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .profile-picture {
+    width: 200px;
+    height: 200px;
+  }
+  .hobbies-container {
+    grid-template-columns: 1fr;
+  }
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-text,
+  .contact-form {
+    width: 100%;
+  }
+  .skills-list li {
+    flex: 1 1 calc(50% - 2rem);
+  }
+}
+/* Mobile (≤600px) */
+@media (max-width: 600px) {
+  header nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .main-text h2 {
+    font-size: 2rem;
+  }
+  .main-text h3 {
+    font-size: 1.4rem;
+  }
+  .main-text p {
+    font-size: 1rem;
+  }
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+  }
+  .hobbies-container {
+    grid-template-columns: 1fr;
+  }
+  .skills-list li {
+    flex: 1 1 100%;
+  }
+  .contact-text h2 {
+    font-size: 1.8rem;
+  }
+  .contact-text p {
+    font-size: 1rem;
+  }
 }/*# sourceMappingURL=styles.css.map */
